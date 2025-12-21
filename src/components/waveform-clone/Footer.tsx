@@ -14,13 +14,11 @@ export function Footer() {
           {/* Left Side: Brand Name */}
           <div className="flex items-center gap-6">
             <div className="relative group">
-              <div className="w-16 h-16 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]">
-                <div className="w-8 h-8 md:w-12 md:h-12 bg-black rounded-lg rotate-45" />
-              </div>
-              <div className="absolute -top-2 -left-2 w-8 h-8 bg-red-600 rounded-full animate-pulse opacity-50 blur-sm" />
+            
+              
             </div>
             <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-none select-none">
-              <span className="text-red-600">W</span>AVEFORM
+              <span className="text-blue-600">W</span>AVEFORM
             </h2>
           </div>
 
