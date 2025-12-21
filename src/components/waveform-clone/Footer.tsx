@@ -5,42 +5,48 @@ import Link from "next/link";
 
 export function Footer() {
   return (
-    <footer className="py-20 px-6 border-t border-white/5">
+    <footer className="py-20 px-6 border-t border-primary-cyan/10 bg-bg-primary">
       <div className="max-w-6xl mx-auto space-y-12">
         <div className="flex flex-col md:flex-row justify-between gap-12">
           <div className="space-y-6 max-w-xs">
-             <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-black rounded-sm rotate-45" />
+             <div className="flex items-center gap-3">
+                <div className="flex items-center gap-1">
+                  {[0.4, 0.7, 1].map((h, i) => (
+                    <div key={i} className="w-1 h-6 bg-primary-cyan rounded-full glow-cyan" />
+                  ))}
                 </div>
-                <span className="font-bold text-lg tracking-tighter">WAVEFORM</span>
+                <span className="font-bold text-lg tracking-widest text-primary-cyan">SOUNDVIBE</span>
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Your ideas deserve more than a demo. Let's turn them into records that last.
+              <p className="text-sm text-text-secondary leading-relaxed">
+                SynthWave audio-native design system for professional mixing, VFX, and creative studio workflows.
               </p>
-              <p className="text-xs text-muted-foreground pt-4">
-                Created by <span className="text-white">Sebadam</span>
-              </p>
+              <div className="space-y-2 pt-4">
+                <p className="text-[10px] mono-text text-text-muted uppercase tracking-tighter">
+                  EST. 2025 | v1.0 | 44.1kHz / 24-bit
+                </p>
+                <p className="text-xs text-text-muted">
+                  Created by <span className="text-text-primary">SoundVibe Studios</span>
+                </p>
+              </div>
           </div>
           
           <div className="grid grid-cols-2 gap-20">
             <div className="space-y-4">
-              <h4 className="text-xs font-bold tracking-widest text-white uppercase">Navigation</h4>
-              <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <Link href="#services" className="hover:text-white transition-colors">Services</Link>
-                <Link href="#about" className="hover:text-white transition-colors">About</Link>
-                <Link href="#work" className="hover:text-white transition-colors">Work</Link>
-                <Link href="#contact" className="hover:text-white transition-colors">Contact</Link>
-                <Link href="/404" className="hover:text-white transition-colors">404</Link>
+              <h4 className="text-xs font-bold tracking-widest text-text-primary uppercase">Studio Map</h4>
+              <nav className="flex flex-col gap-2 text-sm text-text-muted mono-text uppercase text-[12px]">
+                <Link href="#services" className="hover:text-primary-cyan transition-colors hover:glow-cyan">Services</Link>
+                <Link href="#about" className="hover:text-secondary-lime transition-colors">Equipment</Link>
+                <Link href="#work" className="hover:text-accent-purple transition-colors">Portfolio</Link>
+                <Link href="#contact" className="hover:text-accent-pink transition-colors">Booking</Link>
               </nav>
             </div>
             <div className="space-y-4">
-              <h4 className="text-xs font-bold tracking-widest text-white uppercase">Socials</h4>
-              <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <Link href="#" className="hover:text-white transition-colors">Instagram</Link>
-                <Link href="#" className="hover:text-white transition-colors">Twitter</Link>
-                <Link href="#" className="hover:text-white transition-colors">Youtube</Link>
-                <Link href="#" className="hover:text-white transition-colors">Facebook</Link>
+              <h4 className="text-xs font-bold tracking-widest text-text-primary uppercase">Frequencies</h4>
+              <nav className="flex flex-col gap-2 text-sm text-text-muted mono-text uppercase text-[12px]">
+                <Link href="#" className="hover:text-primary-cyan transition-colors">Instagram</Link>
+                <Link href="#" className="hover:text-accent-purple transition-colors">Vimeo</Link>
+                <Link href="#" className="hover:text-accent-pink transition-colors">Mixcloud</Link>
+                <Link href="#" className="hover:text-text-primary transition-colors">LinkedIn</Link>
               </nav>
             </div>
           </div>

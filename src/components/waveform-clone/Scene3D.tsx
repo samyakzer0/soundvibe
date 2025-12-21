@@ -6,7 +6,7 @@ import { useGLTF, OrbitControls, Environment, ContactShadows } from "@react-thre
 
 function Model({ url }: { url: string }) {
   const { scene } = useGLTF(url);
-  return <primitive object={scene} scale={2} position={[0, -1, 0]} />;
+  return <primitive object={scene} scale={7} position={[0, -1, 0]} />;
 }
 
 export function Scene3D() {
@@ -16,7 +16,7 @@ export function Scene3D() {
 
   return (
     <div className="absolute inset-0 z-0">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+      <Canvas camera={{ position: [0, 5, 5], fov: 90 }}>
         <ambientLight intensity={0.5} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
         <pointLight position={[-10, -10, -10]} />
@@ -27,7 +27,7 @@ export function Scene3D() {
           <Environment preset="city" />
           <ContactShadows position={[0, -1, 0]} opacity={0.4} scale={10} blur={2} far={4} />
         </Suspense>
-        <OrbitControls enableZoom={false} autoRotate />
+        <OrbitControls enableZoom={true} />
       </Canvas>
     </div>
   );
