@@ -2,49 +2,65 @@
 
 import React from "react";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="py-20 px-6 border-t border-white/5">
-      <div className="max-w-6xl mx-auto space-y-12">
-        <div className="flex flex-col md:flex-row justify-between gap-12">
-          <div className="space-y-6 max-w-xs">
-             <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
-                  <div className="w-3 h-3 bg-black rounded-sm rotate-45" />
-                </div>
-                <span className="font-bold text-lg tracking-tighter">WAVEFORM</span>
+    <footer className="relative bg-black text-white pt-32 pb-12 px-6 overflow-hidden">
+      <div className="max-w-[1400px] mx-auto">
+        <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-16">
+          {/* Left Side: Brand Name */}
+          <div className="flex items-center gap-6">
+            <div className="relative group">
+              <div className="w-16 h-16 md:w-24 md:h-24 bg-white rounded-full flex items-center justify-center transition-transform duration-500 group-hover:rotate-[360deg]">
+                <div className="w-8 h-8 md:w-12 md:h-12 bg-black rounded-lg rotate-45" />
               </div>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                Your ideas deserve more than a demo. Let's turn them into records that last.
-              </p>
-              <p className="text-xs text-muted-foreground pt-4">
-                Created by <span className="text-white">Sebadam</span>
-              </p>
+              <div className="absolute -top-2 -left-2 w-8 h-8 bg-red-600 rounded-full animate-pulse opacity-50 blur-sm" />
+            </div>
+            <h2 className="text-7xl md:text-[10rem] font-black tracking-tighter leading-none select-none">
+              <span className="text-red-600">W</span>AVEFORM
+            </h2>
           </div>
-          
-          <div className="grid grid-cols-2 gap-20">
-            <div className="space-y-4">
-              <h4 className="text-xs font-bold tracking-widest text-white uppercase">Navigation</h4>
-              <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <Link href="#services" className="hover:text-white transition-colors">Services</Link>
-                <Link href="#about" className="hover:text-white transition-colors">About</Link>
-                <Link href="#work" className="hover:text-white transition-colors">Work</Link>
-                <Link href="#contact" className="hover:text-white transition-colors">Contact</Link>
-                <Link href="/404" className="hover:text-white transition-colors">404</Link>
-              </nav>
-            </div>
-            <div className="space-y-4">
-              <h4 className="text-xs font-bold tracking-widest text-white uppercase">Socials</h4>
-              <nav className="flex flex-col gap-2 text-sm text-muted-foreground">
-                <Link href="#" className="hover:text-white transition-colors">Instagram</Link>
-                <Link href="#" className="hover:text-white transition-colors">Twitter</Link>
-                <Link href="#" className="hover:text-white transition-colors">Youtube</Link>
-                <Link href="#" className="hover:text-white transition-colors">Facebook</Link>
-              </nav>
-            </div>
+
+          {/* Right Side: Links */}
+          <div className="flex flex-col items-end gap-6 w-full md:w-auto">
+            {[
+              { label: "LINKEDIN", href: "#" },
+              { label: "INSTAGRAM", href: "#" },
+              { label: "FACEBOOK", href: "#" },
+              { label: "EMAIL US", href: "mailto:hello@waveform.com" },
+            ].map((link) => (
+              <Link
+                key={link.label}
+                href={link.href}
+                className="group flex items-center gap-4 text-3xl md:text-5xl font-bold transition-all duration-300 hover:tracking-widest"
+              >
+                <span>{link.label}</span>
+                <ArrowRight className="w-8 h-8 md:w-12 md:h-12 text-red-600 group-hover:translate-x-2 transition-transform duration-300" />
+              </Link>
+            ))}
           </div>
         </div>
+
+        {/* Bottom Section */}
+        <div className="mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          <p className="text-gray-500 text-sm md:text-base font-medium">
+            © {currentYear} Waveform Studio. All rights reserved.
+          </p>
+          <div className="flex gap-8 text-sm text-gray-400">
+            <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+          </div>
+        </div>
+      </div>
+
+      {/* Background Decorative Text */}
+      <div className="absolute bottom-0 right-0 transform translate-y-1/2 opacity-[0.02] pointer-events-none hidden lg:block">
+        <span className="text-[30rem] font-black whitespace-nowrap">
+          WAVEFORM
+        </span>
       </div>
     </footer>
   );
