@@ -17,7 +17,7 @@ export function ContactCTA() {
             LET'S GET <br /> IN TOUCH
           </h2>
           
-            <div className="w-full -mt-8 -mb-12">
+            <div className="w-full mt-4 -mb-8">
               <ContactModel />
             </div>
     
