@@ -20,7 +20,7 @@ export function Hero() {
       {/* Content */}
       <div className="relative z-20 h-full flex items-center justify-center">
         {/* Placeholder for content or future 3D model */}
-        <h1 className="text-8xl md:text-9xl font-black tracking-tighter text-white opacity-90 mix-blend-overlay">
+        <h1 className="text-5xl md:text-9xl font-black tracking-tighter text-white opacity-90 mix-blend-overlay text-center">
           SOUND<br />VIBE
         </h1>
       </div>

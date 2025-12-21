@@ -22,7 +22,7 @@ export function ContactCTA() {
       <div className="max-w-4xl mx-auto text-center flex flex-col items-center relative z-10">
         <div className="w-12 h-[1px] bg-white/20 mb-8" />
 
-        <h2 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none uppercase mb-4">
+        <h2 className="text-4xl md:text-8xl font-bold tracking-tighter leading-none uppercase mb-4">
           LET'S GET <br /> IN TOUCH
         </h2>
 

@@ -13,7 +13,7 @@ export function Footer() {
         <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-16">
           {/* Left Side: Brand Name */}
           <div className="flex items-center gap-6">
-            <h2 className="text-7xl md:text-[12rem] font-black tracking-tighter leading-[0.75] select-none flex flex-col">
+            <h2 className="text-5xl md:text-[12rem] font-black tracking-tighter leading-[0.75] select-none flex flex-col">
               <span><span className="text-blue-600">S</span>OUND</span>
               <span>VIBE</span>
             </h2>
@@ -30,10 +30,10 @@ export function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex items-center gap-4 text-3xl md:text-5xl font-bold transition-all duration-300 hover:tracking-widest"
+                className="group flex items-center gap-4 text-xl md:text-5xl font-bold transition-all duration-300 hover:tracking-widest"
               >
                 <span>{link.label}</span>
-                <ArrowRight className="w-8 h-8 md:w-12 md:h-12 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-6 h-6 md:w-12 md:h-12 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
               </Link>
             ))}
           </div>

@@ -33,7 +33,7 @@ export function AboutMe() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20 space-y-4">
           <div className="w-12 h-[1px] bg-white/20 mx-auto" />
-          <h2 className="text-5xl font-bold tracking-tighter">ABOUT SOUNDVIBE</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">ABOUT SOUNDVIBE</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12 items-center mb-32">

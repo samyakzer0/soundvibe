@@ -30,9 +30,9 @@ export function Testimonials() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20 space-y-4">
           <div className="w-12 h-[1px] bg-white/20 mx-auto" />
-          <h2 className="text-5xl font-bold tracking-tighter uppercase">Testimonials</h2>
+          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">Testimonials</h2>
         </div>
-        
+
         <div className="grid md:grid-cols-3 gap-8">
           {testimonials.map((t, i) => (
             <motion.div

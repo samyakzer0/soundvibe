@@ -43,7 +43,7 @@ export function WhatIDo() {
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20">
           <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
-          <h2 className="text-4xl font-bold tracking-tighter">OUR SERVICES</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">OUR SERVICES</h2>
         </div>
 
         <div className="grid gap-20">
