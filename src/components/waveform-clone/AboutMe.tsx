@@ -4,80 +4,104 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 
-const equipment = [
-  { category: "CONSOLES", name: "Solid State Logic AWS 948", spec: "48-Channel Hybrid" },
-  { category: "MONITORS", name: "Barefoot Sound Footprint01", spec: "3-Way Active" },
-  { category: "MICROPHONES", name: "Neumann U87 Ai", spec: "Large Diaphragm Condenser" },
-  { category: "OUTBOARD", name: "Universal Audio LA-2A", spec: "Tube Opto Leveler" },
+const values = [
+  {
+    number: "1",
+    title: "VISION",
+    description: "Every record begins with a clear vision. I shape raw ideas into music that feels intentional, timeless, and emotionally powerful.",
+  },
+  {
+    number: "2",
+    title: "CRAFT",
+    description: "Details matter. From sound design to final polish, I approach every track with precision and care that makes the music shine.",
+  },
+  {
+    number: "3",
+    title: "TRUST",
+    description: "Collaboration only works with trust. I keep communication open, deadlines tight, and always deliver what I promise without compromise.",
+  },
+  {
+    number: "4",
+    title: "ENERGY",
+    description: "Music should move people. I focus on creating productions that carry energy — tracks that connect instantly and stay with listeners.",
+  }
 ];
 
 export function AboutMe() {
   return (
-    <section id="about" className="py-24 px-6 bg-bg-primary">
+    <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-20 space-y-4">
-          <div className="w-12 h-[1px] bg-border-secondary mx-auto" />
-          <h2 className="text-4xl font-bold tracking-tighter uppercase">STUDIO SETUP</h2>
+          <div className="w-12 h-[1px] bg-white/20 mx-auto" />
+          <h2 className="text-5xl font-bold tracking-tighter">ABOUT ME</h2>
         </div>
         
-        <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="space-y-8"
-          >
-            <h3 className="text-3xl font-bold tracking-tighter text-primary-cyan">PROFESSIONAL GRADE ENVIRONMENT</h3>
-            <p className="text-text-secondary leading-relaxed">
-              SoundVibe is equipped with industry-standard hardware and calibrated acoustics, providing a precision-focused workspace for high-end audio and visual production.
-            </p>
-            
-            <div className="space-y-6">
-              {equipment.map((item, i) => (
-                <div key={i} className="flex justify-between border-b border-border-secondary pb-4">
-                  <div className="space-y-1">
-                    <span className="label-control text-border-primary">{item.category}</span>
-                    <p className="text-text-primary font-semibold">{item.name}</p>
-                  </div>
-                  <span className="mono-text text-text-muted self-end">{item.spec}</span>
-                </div>
-              ))}
-            </div>
-
-            <Button variant="outline" className="rounded-button px-8 border-border-primary text-primary-cyan hover:bg-primary-cyan hover:text-bg-primary glow-subtle-cyan transition-all label-control">
-              TOUR STUDIO
-            </Button>
-          </motion.div>
+        <div className="grid md:grid-cols-3 gap-12 items-center mb-32">
+          <div className="space-y-20">
+            {values.slice(0, 2).map((val, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-4 text-center md:text-right"
+              >
+                <span className="text-6xl font-bold text-white/10 block leading-none">{val.number}</span>
+                <h3 className="text-2xl font-bold tracking-tighter">{val.title}</h3>
+                <p className="text-muted-foreground text-sm max-w-[200px] ml-auto">{val.description}</p>
+              </motion.div>
+            ))}
+          </div>
           
-          <motion.div 
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            className="relative aspect-square rounded-[4px] overflow-hidden border border-border-secondary bg-bg-secondary glow-dual"
-          >
+          <div className="relative aspect-[3/4] rounded-3xl overflow-hidden border border-white/10">
              <img 
-               src="https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?q=80&w=1000&auto=format&fit=crop" 
-               alt="Studio Console" 
-               className="w-full h-full object-cover opacity-80"
+               src="https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=1000&auto=format&fit=crop" 
+               alt="About" 
+               className="w-full h-full object-cover"
              />
-             <div className="absolute inset-0 bg-gradient-to-t from-bg-primary via-transparent to-transparent" />
-          </motion.div>
+             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          </div>
+          
+          <div className="space-y-20">
+            {values.slice(2, 4).map((val, i) => (
+              <motion.div 
+                key={i} 
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                className="space-y-4 text-center md:text-left"
+              >
+                <span className="text-6xl font-bold text-white/10 block leading-none">{val.number}</span>
+                <h3 className="text-2xl font-bold tracking-tighter">{val.title}</h3>
+                <p className="text-muted-foreground text-sm max-w-[200px] mr-auto">{val.description}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
         
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 border-t border-border-secondary pt-12">
+        <div className="text-center">
+          <Button variant="outline" className="rounded-full px-8 border-white/20 hover:bg-white hover:text-black transition-all">
+            Let's talk
+          </Button>
+        </div>
+        
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-32 border-t border-white/5 pt-12">
            {[
-             { label: "RECORDING HRS", value: "5000+" },
-             { label: "STUDIO TRACKS", value: "200+" },
-             { label: "MIX PROJECTS", value: "350+" },
-             { label: "VFX RENDER", value: "100+" }
+             { label: "Years in music", value: "15+" },
+             { label: "Clients served", value: "100+" },
+             { label: "Artists collaborated", value: "200+" },
+             { label: "Tracks produced", value: "500+" }
            ].map((stat, i) => (
              <motion.div 
                key={i}
                initial={{ opacity: 0, y: 20 }}
                whileInView={{ opacity: 1, y: 0 }}
+               viewport={{ once: true }}
                transition={{ delay: i * 0.1 }}
                className="text-center space-y-1"
              >
-               <h4 className="text-4xl font-bold tracking-tighter text-text-primary mono-text">{stat.value}</h4>
-               <p className="label-control text-text-muted">{stat.label}</p>
+               <h4 className="text-5xl font-bold tracking-tighter">{stat.value}</h4>
+               <p className="text-xs text-muted-foreground uppercase tracking-widest">{stat.label}</p>
              </motion.div>
            ))}
         </div>
