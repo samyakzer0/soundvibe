@@ -3,6 +3,7 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { ContactModel } from "./three/ContactModel";
 
 export function ContactCTA() {
   return (
@@ -16,6 +17,8 @@ export function ContactCTA() {
           LET'S GET <br /> IN TOUCH
         </h2>
         
+        <ContactModel />
+
         <motion.div
            whileHover={{ scale: 1.05 }}
            whileTap={{ scale: 0.95 }}
@@ -26,7 +29,7 @@ export function ContactCTA() {
         </motion.div>
       </div>
       
-      <div className="mt-32 flex justify-center opacity-20 group">
+      <div className="mt-12 flex justify-center opacity-20 group">
         <div className="relative w-full max-w-lg h-64">
            {/* Spot light effect */}
            <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[200%] aspect-square bg-[radial-gradient(circle_at_bottom,rgba(255,255,255,0.1)_0%,transparent_70%)] rounded-full blur-3xl" />
