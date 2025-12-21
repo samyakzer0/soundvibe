@@ -17,14 +17,14 @@ export function ContactCTA() {
             LET'S GET <br /> IN TOUCH
           </h2>
           
-            <div className="w-full">
+            <div className="w-full -mt-8 -mb-12">
               <ContactModel />
             </div>
     
             <motion.div
                whileHover={{ scale: 1.05 }}
                whileTap={{ scale: 0.95 }}
-               className="relative z-20"
+               className="relative z-30"
             >
             <Button size="lg" className="rounded-full px-12 h-16 text-xl bg-white text-black hover:bg-white/90 shadow-2xl">
               Let's talk

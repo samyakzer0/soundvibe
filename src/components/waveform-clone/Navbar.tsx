@@ -28,35 +28,36 @@ export function Navbar() {
         <span className="font-bold text-xl tracking-tighter">WAVEFORM</span>
       </div>
       
-      <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
-        {navLinks.map((link, index) => (
-          <Link 
-            key={link.name} 
-            href={link.href}
-            onMouseEnter={() => setHoveredIndex(index)}
-            onMouseLeave={() => setHoveredIndex(null)}
-            className="relative py-1 transition-colors hover:text-white"
-          >
-            {link.name}
-            <AnimatePresence>
+        <div className="hidden md:flex items-center gap-8 text-sm font-medium text-muted-foreground">
+          {navLinks.map((link, index) => (
+            <Link 
+              key={link.name} 
+              href={link.href}
+              onMouseEnter={() => setHoveredIndex(index)}
+              onMouseLeave={() => setHoveredIndex(null)}
+              className="relative py-1 transition-colors hover:text-white group"
+            >
+              {link.name}
               {hoveredIndex === index && (
                 <motion.div
                   layoutId="nav-underline"
-                  className="absolute bottom-0 left-0 right-0 h-[2px]"
-                  style={{ 
+                  className="absolute -bottom-1 left-0 right-0 h-[3px] rounded-full"
+                  initial={false}
+                  animate={{ 
                     backgroundColor: link.color,
-                    boxShadow: `0 0 12px ${link.color}, 0 0 6px ${link.color}`
+                    boxShadow: `0 0 15px ${link.color}, 0 0 5px ${link.color}`
                   }}
-                  initial={{ opacity: 0, scaleX: 0 }}
-                  animate={{ opacity: 1, scaleX: 1 }}
-                  exit={{ opacity: 0, scaleX: 0 }}
-                  transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 400, 
+                    damping: 30,
+                    backgroundColor: { duration: 0.2 }
+                  }}
                 />
               )}
-            </AnimatePresence>
-          </Link>
-        ))}
-      </div>
+            </Link>
+          ))}
+        </div>
       
       <Button variant="outline" className="rounded-full px-6 border-white/20 hover:bg-white hover:text-black transition-all">
         Get in touch

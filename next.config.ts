@@ -24,6 +24,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
+  transpilePackages: ["three"],
   turbopack: {
     rules: {
       "*.{jsx,tsx}": {

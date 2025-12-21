@@ -15,7 +15,16 @@ export function ContactModel() {
 
   return (
     <div className="w-full h-[500px] relative">
-      <Canvas camera={{ position: [0, 0, 5], fov: 45 }}>
+      <Canvas 
+        camera={{ position: [0, 0, 5], fov: 45 }}
+        gl={{ 
+          antialias: true, 
+          alpha: true,
+          powerPreference: "high-performance",
+          failIfMajorPerformanceCaveat: false 
+        }}
+        dpr={[1, 2]}
+      >
         <ambientLight intensity={0.7} />
         <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
         <pointLight position={[-10, -10, -10]} intensity={0.5} color="#00ffff" />
