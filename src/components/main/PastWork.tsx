@@ -20,11 +20,6 @@ const works = [
     image: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?q=80&w=1000&auto=format&fit=crop",
   },
   {
-    title: "ZAYNEX - PRESSURE",
-    tags: "Beat Production, Mixing",
-    image: "https://images.unsplash.com/photo-1514525253342-b0bb0d8a5991?q=80&w=1000&auto=format&fit=crop",
-  },
-  {
     title: "AYA V - GLITTER TEARS",
     tags: "Production, Vocal Tuning, Mastering",
     image: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?q=80&w=1000&auto=format&fit=crop",

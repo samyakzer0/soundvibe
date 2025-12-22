@@ -39,26 +39,27 @@ const services = [
 
 export function WhatIDo() {
   return (
-    <section id="services" className="py-24 px-6">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20">
+    <section id="services" className="relative py-24 px-6 md:px-8 mt-42 md:mt-48 bg-black z-30">
+      
+      <div className="max-w-6xl mx-auto relative">
+        <div className="text-center mb-16 md:mb-20">
           <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tighter">OUR SERVICES</h2>
+          <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase">SERVICES</h2>
         </div>
 
-        <div className="grid gap-20">
+        <div className="grid gap-16 md:gap-20">
           {services.map((service, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-12 items-center`}
+              className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-12 items-center`}
             >
-              <div className="flex-1 space-y-8">
+              <div className="flex-1 space-y-6 md:space-y-8 w-full">
                 <div className="w-12 h-[1px] bg-white/20" />
-                <h3 className="text-3xl font-bold tracking-tighter">{service.title}</h3>
+                <h3 className="text-2xl md:text-3xl font-bold tracking-tighter">{service.title}</h3>
                 <p className="text-muted-foreground leading-relaxed max-w-md">
                   {service.description}
                 </p>

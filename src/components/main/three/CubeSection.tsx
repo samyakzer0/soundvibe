@@ -217,6 +217,8 @@ export const CubeSection: React.FC = () => {
     }, []);
 
     return (
+
+        
         <div className="relative w-full bg-transparent">
             {/* 
         Container with sufficient height for scrolling 

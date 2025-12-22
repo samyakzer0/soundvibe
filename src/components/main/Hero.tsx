@@ -26,9 +26,9 @@ export function Hero() {
 
       // Parallax layers: background moves faster, text moves slower
       const layers = [
-        { layer: "1", yPercent: 70 },  // Background (moves most)
-        { layer: "2", yPercent: 55 },  // Gradient overlay
-        { layer: "3", yPercent: 40 },  // Text (moves least)
+        { layer: "1", yPercent: 20 },  // Background (moves most)
+        { layer: "2", yPercent: 20 },  // Gradient overlay
+        { layer: "3", yPercent: 15 },  // Text (moves least)
       ];
 
       layers.forEach((layerObj, idx) => {
@@ -47,11 +47,11 @@ export function Hero() {
   }, []);
 
   return (
-    <div className="w-full relative overflow-hidden" ref={containerRef}>
-      <section className="relative flex min-h-[100svh] items-center justify-center z-[2]">
+    <div className="w-full relative overflow-hidden bg-transparent" ref={containerRef}>
+      <section className="relative flex min-h-[100svh] items-center justify-center z-[2] bg-transparent">
 
         {/* Parallax Visuals Container */}
-        <div className="absolute top-0 left-0 w-full h-[120%]">
+        <div className="absolute top-0 left-0 w-full h-[90%] bg-transparent">
 
           {/* Bottom line for clean edge */}
           <div className="absolute bottom-[-1px] left-0 w-full h-[2px] bg-black z-20"></div>
@@ -89,9 +89,9 @@ export function Hero() {
 
           {/* Fade Gradient at Bottom */}
           <div
-            className="absolute bottom-0 left-0 h-[20%] w-full z-30 pointer-events-none"
+            className="absolute bottom-0 left-0 h-[10%] w-full z-30 pointer-events-none"
             style={{
-              background: 'linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.738) 19%, rgba(0, 0, 0, 0.541) 34%, transparent 100%)'
+              background: 'linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.6) 30%, rgba(0, 0, 0, 0.3) 60%, transparent 100%)'
             }}
           />
         </div>

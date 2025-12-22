@@ -23,7 +23,7 @@ export const VinylRecord: React.FC = () => {
             </div>
 
             {/* Spindle Hole */}
-            <div className="absolute w-3 h-3 sm:w-4 sm:h-4 bg-gray-300 rounded-full shadow-inner border border-gray-400 z-10 flex items-center justify-center">
+            <div className="absolute w-3 h-3 sm:w-4 sm:h-4 bg-black-300 rounded-full shadow-inner border border-gray-400 z-10 flex items-center justify-center">
                 <div className="w-1 h-1 bg-black/50 rounded-full"></div>
             </div>
 
