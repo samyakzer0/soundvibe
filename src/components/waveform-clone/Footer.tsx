@@ -8,19 +8,30 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black text-white pt-32 pb-12 px-6 overflow-hidden">
+    <footer className="relative bg-black text-white pt-24 pb-12 px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row items-center md:items-end justify-between gap-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-16 md:gap-16">
           {/* Left Side: Brand Name */}
-          <div className="flex items-center gap-6">
-            <h2 className="text-5xl md:text-[12rem] font-black tracking-tighter leading-[0.75] select-none flex flex-col">
-              <span><span className="text-blue-600">S</span>OUND</span>
-              <span>VIBE</span>
+          <div className="flex flex-col gap-6">
+            <h2 className="text-6xl md:text-[12rem] font-black tracking-tighter leading-[0.75] select-none flex flex-col">
+              <div className="flex items-center">
+                <div className="w-12 h-12 md:w-24 md:h-24 bg-red-600 rounded-full mr-4 md:mr-8 hidden"></div> {/* Placeholder for logo graphic if needed */}
+                <div>
+                  <span>SOUND</span>
+                  <br />
+                  <span>VIBE</span>
+                </div>
+              </div>
             </h2>
+
+            {/* Mobile Copyright (Visible only on mobile) */}
+            <p className="text-gray-500/80 text-sm font-medium block md:hidden mt-2">
+              © {currentYear} SoundVibe. All rights reserved.
+            </p>
           </div>
 
           {/* Right Side: Links */}
-          <div className="flex flex-col items-end gap-2 w-full md:w-auto">
+          <div className="flex flex-col items-start md:items-end gap-2 w-full md:w-auto mt-8 md:mt-0">
             {[
               { label: "LINKEDIN", href: "#" },
               { label: "INSTAGRAM", href: "#" },
@@ -30,7 +41,7 @@ export function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex items-center gap-4 text-xl md:text-5xl font-bold transition-all duration-300 hover:tracking-widest"
+                className="group flex items-center gap-4 text-3xl md:text-5xl font-black uppercase tracking-tighter transition-all duration-300 hover:tracking-widest"
               >
                 <span>{link.label}</span>
                 <ArrowRight className="w-6 h-6 md:w-12 md:h-12 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
@@ -40,8 +51,9 @@ export function Footer() {
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-gray-500 text-sm md:text-base font-medium">
+        <div className="mt-20 md:mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+          {/* Desktop Copyright (Hidden on mobile) */}
+          <p className="text-gray-500 text-sm md:text-base font-medium hidden md:block">
             © {currentYear} SoundVibe. All rights reserved.
           </p>
           <div className="flex gap-8 text-sm text-gray-400">

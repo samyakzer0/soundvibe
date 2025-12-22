@@ -1,63 +1,88 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { Quote } from "lucide-react";
+import { ScalingSlidingCards } from "@/components/ui/scaling-sliding-cards";
 
 const testimonials = [
   {
-    quote: "Darius transformed my rough demo into a track that sounds radio-ready. His attention to detail made all the difference.",
-    author: "Nova Kane",
-    title: "TURNED MY IDEA INTO A HIT!",
-    image: "https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?q=80&w=1000&auto=format&fit=crop",
+    id: 1,
+    quote: "SoundVibe turned our vision into reality. The mixing precision is unmatched.",
+    author: "Alex Rivera",
+    role: "Music Producer",
   },
   {
-    quote: "Working with Darius was smooth from start to finish. Clear communication, fast delivery, and a track that exceeded my expectations.",
-    author: "Kairo",
-    title: "SUPER FAST, SUPER PROFESSIONAL",
-    image: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?q=80&w=1000&auto=format&fit=crop",
+    id: 2,
+    quote: "Professional, fast, and incredibly creative. The team elevated our entire project.",
+    author: "Sarah Chen",
+    role: "Director",
   },
   {
-    quote: "The mastering gave my track the punch it was missing. It now sounds amazing on Spotify and in the club.",
-    author: "Lila Ray",
-    title: "MADE MY SONG SHINE",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=1000&auto=format&fit=crop",
+    id: 3,
+    quote: "The sound design completely changed the emotional impact of our film.",
+    author: "Mike Ross",
+    role: "Filmmaker",
+  },
+  {
+    id: 4,
+    quote: "I've worked with many studios, but SoundVibe brings a unique artistic touch.",
+    author: "Jessica Pearson",
+    role: "Artist",
+  },
+  {
+    id: 5,
+    quote: "A seamless experience from start to finish. Highly recommended for serious creators.",
+    author: "Harvey Specter",
+    role: "Label Manager",
+  },
+  {
+    id: 6,
+    quote: "They understood exactly what we needed before we even articulated it.",
+    author: "Louis Litt",
+    role: "Creative Director",
+  },
+  {
+    id: 7,
+    quote: "World-class quality. The spatial audio work they did for us was mind-blowing.",
+    author: "Donna Paulsen",
+    role: "VR Developer",
   },
 ];
 
 export function Testimonials() {
-  return (
-    <section className="py-24 px-6 bg-[#050505]">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20 space-y-4">
-          <div className="w-12 h-[1px] bg-white/20 mx-auto" />
-          <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">Testimonials</h2>
+  const cards = testimonials.map((t) => ({
+    id: t.id,
+    content: (
+      <div className="w-full h-full bg-[#0a0a0a] border border-white/10 rounded-[30px] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden group hover:border-white/20 transition-all duration-500">
+        {/* Background Glow */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-[80px] group-hover:bg-cyan-500/10 transition-colors" />
+
+        {/* Quote Icon */}
+        <div className="relative z-10">
+          <Quote className="w-12 h-12 md:w-16 md:h-16 text-transparent fill-cyan-400 opacity-50 mb-6" />
+          <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-gray-200">
+            "{t.quote}"
+          </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
-          {testimonials.map((t, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              className="group bg-[#0a0a0a] border border-white/5 rounded-[40px] p-8 space-y-8 flex flex-col items-center text-center"
-            >
-              <div className="relative w-48 h-64 rounded-t-full overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500">
-                <img src={t.image} alt={t.author} className="w-full h-full object-cover" />
-              </div>
-              <div className="space-y-4">
-                <div className="w-8 h-[1px] bg-white/20 mx-auto" />
-                <h4 className="text-xs font-bold tracking-widest uppercase">{t.title}</h4>
-                <p className="text-sm text-muted-foreground leading-relaxed italic">
-                  "{t.quote}"
-                </p>
-                <p className="text-xs font-bold text-white uppercase">— {t.author}</p>
-              </div>
-            </motion.div>
-          ))}
+        {/* Author */}
+        <div className="relative z-10">
+          <div className="w-12 h-[1px] bg-gradient-to-r from-cyan-500 to-transparent mb-4" />
+          <h4 className="text-lg font-bold uppercase tracking-wider text-white">{t.author}</h4>
+          <p className="text-sm font-bold tracking-widest text-cyan-500/70 mt-1">{t.role}</p>
         </div>
       </div>
+    )
+  }));
+
+  return (
+    <section className="bg-[#050505] relative z-10">
+      <div className="text-center py-20 px-6">
+        <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
+        <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">Client Stories</h2>
+      </div>
+
+      <ScalingSlidingCards cards={cards} />
     </section>
   );
 }
