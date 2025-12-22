@@ -24,17 +24,16 @@ export default function Page() {
         <LogoCloud />
       </ParallaxWrapper>
 
-      <ParallaxWrapper>
         <WhatIDo />
-      </ParallaxWrapper>
+     
 
       <ParallaxWrapper>
         <Quote />
       </ParallaxWrapper>
 
-      <ParallaxWrapper>
+     
         <PastWork />
-      </ParallaxWrapper>
+    
 
       {/* CubeSection has its own scroll-based animation, so no wrapper */}
       <CubeSection />
