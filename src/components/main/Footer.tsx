@@ -3,25 +3,28 @@
 import React from "react";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
+import { VinylRecord } from "./VinylRecord";
+import { ToneArm } from "./ToneArm";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-black text-white pt-24 pb-12 px-6 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-black/50 to-black text-white pt-24 pb-12 px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
         <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-16 md:gap-16">
-          {/* Left Side: Brand Name */}
+          {/* Left Side: Brand Name with Vinyl */}
           <div className="flex flex-col gap-6">
             <h2 className="text-6xl md:text-[12rem] font-black tracking-tighter leading-[0.75] select-none flex flex-col">
-              <div className="flex items-center">
-                <div className="w-12 h-12 md:w-24 md:h-24 bg-red-600 rounded-full mr-4 md:mr-8 hidden"></div> {/* Placeholder for logo graphic if needed */}
-                <div>
-                  <span>SOUND</span>
-                  <br />
-                  <span>VIBE</span>
-                </div>
-              </div>
+              <span>SOUND</span>
+              <span className="flex items-center">
+                VIBE
+                {/* Vinyl Record with ToneArm - sized to match text height */}
+                <span className="relative w-[0.6em] h-[0.6em] ml-2 inline-block overflow-visible">
+                  <VinylRecord />
+                  <ToneArm />
+                </span>
+              </span>
             </h2>
 
             {/* Mobile Copyright (Visible only on mobile) */}

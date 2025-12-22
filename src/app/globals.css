@@ -140,3 +140,46 @@
 nextjs-portal {
   display: none !important;
 }
+
+/* Vinyl Record Theme Colors */
+@theme inline {
+  --color-vinyl-black: #1a1a1a;
+  --color-vinyl-red: #c83232;
+  --color-background: #000000;
+}
+
+/* Vinyl Record Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 4s linear infinite;
+}
+
+/* Vinyl Grooves */
+.vinyl-grooves {
+  background: repeating-radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.03) 0px,
+    rgba(255, 255, 255, 0.03) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+}
+
+/* Vinyl Sheen */
+.vinyl-sheen {
+  background: linear-gradient(
+    135deg,
+    transparent 40%,
+    rgba(255, 255, 255, 0.15) 50%,
+    transparent 60%
+  );
+}
+

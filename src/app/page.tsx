@@ -1,32 +1,59 @@
 "use client";
 
 import React from "react";
-import { Navbar } from "@/components/waveform-clone/Navbar";
-import { Hero } from "@/components/waveform-clone/Hero";
-import { LogoCloud } from "@/components/waveform-clone/LogoCloud";
-import { WhatIDo } from "@/components/waveform-clone/WhatIDo";
-import { Quote } from "@/components/waveform-clone/Quote";
-import { PastWork } from "@/components/waveform-clone/PastWork";
-import { AboutMe } from "@/components/waveform-clone/AboutMe";
-import { Testimonials } from "@/components/waveform-clone/Testimonials";
-import { FAQ } from "@/components/waveform-clone/FAQ";
-import { ContactCTA } from "@/components/waveform-clone/ContactCTA";
-import { Footer } from "@/components/waveform-clone/Footer";
+import { Navbar } from "@/components/main/Navbar";
+import { Hero } from "@/components/main/Hero";
+import { LogoCloud } from "@/components/main/LogoCloud";
+import { WhatIDo } from "@/components/main/WhatIDo";
+import { Quote } from "@/components/main/Quote";
+import { PastWork } from "@/components/main/PastWork";
+import { CubeSection } from "@/components/main/three/CubeSection";
+import { Testimonials } from "@/components/main/Testimonials";
+import { FAQ } from "@/components/main/FAQ";
+import { ContactCTA } from "@/components/main/ContactCTA";
+import { Footer } from "@/components/main/Footer";
+import { ParallaxWrapper } from "@/components/main/ParallaxWrapper";
 
 export default function Page() {
   return (
     <main className="min-h-screen bg-background text-foreground selection:bg-white selection:text-black">
       <Navbar />
       <Hero />
-      <LogoCloud />
-      <WhatIDo />
-      <Quote />
-      <PastWork />
-      <AboutMe />
-      <Testimonials />
-      <FAQ />
-      <ContactCTA />
-      <Footer />
+
+      <ParallaxWrapper>
+        <LogoCloud />
+      </ParallaxWrapper>
+
+      <ParallaxWrapper>
+        <WhatIDo />
+      </ParallaxWrapper>
+
+      <ParallaxWrapper>
+        <Quote />
+      </ParallaxWrapper>
+
+      <ParallaxWrapper>
+        <PastWork />
+      </ParallaxWrapper>
+
+      {/* CubeSection has its own scroll-based animation, so no wrapper */}
+      <CubeSection />
+
+      <ParallaxWrapper>
+        <Testimonials />
+      </ParallaxWrapper>
+
+      <ParallaxWrapper>
+        <FAQ />
+      </ParallaxWrapper>
+
+      <ParallaxWrapper>
+        <ContactCTA />
+      </ParallaxWrapper>
+
+      <ParallaxWrapper>
+        <Footer />
+      </ParallaxWrapper>
     </main>
   );
 }

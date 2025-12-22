@@ -76,7 +76,7 @@ export function Testimonials() {
   }));
 
   return (
-    <section className="bg-[#050505] relative z-10">
+    <section className="bg-[#050505] relative z-10 pb-20">
       <div className="text-center py-20 px-6">
         <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
         <h2 className="text-3xl md:text-5xl font-bold tracking-tighter uppercase">Client Stories</h2>
