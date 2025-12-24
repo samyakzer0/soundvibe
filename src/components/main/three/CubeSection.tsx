@@ -217,27 +217,33 @@ export const CubeSection: React.FC = () => {
     }, []);
 
     return (
+        <section className="relative w-full bg-transparent pt-40 md:pt-50 pb-0">
+            {/* Section Header */}
+            <div className="text-center mb-2 md:mb-4 px-6">
+                <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
+                <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase">ABOUT SOUNDVIBE</h2>
+            </div>
 
-        
-        <div className="relative w-full bg-transparent">
-            {/* 
-        Container with sufficient height for scrolling 
-      */}
-            <div
-                ref={containerRef}
-                className="relative w-full pb-20"
-                style={{ height: `${FEATURES.length * 100}vh` }}
-            >
+            {/* Cube Animation Container */}
+            <div className="relative w-full bg-transparent">
                 {/* 
-          The Moving Canvas 
-          Placed at root of container, absolutely positioned.
-          GSAP controls x/y/width/height.
-        */}
-                <canvas
-                    ref={canvasRef}
-                    className="absolute top-0 left-0 block rounded-xl z-20 shadow-2xl shadow-blue-500/20"
-                    style={{ pointerEvents: 'none' }} // Let clicks pass through to potential underlying interactions
-                />
+            Container with sufficient height for scrolling 
+          */}
+                <div
+                    ref={containerRef}
+                    className="relative w-full pb-20"
+                    style={{ height: `${FEATURES.length * 100}vh` }}
+                >
+                    {/* 
+              The Moving Canvas 
+              Placed at root of container, absolutely positioned.
+              GSAP controls x/y/width/height.
+            */}
+                    <canvas
+                        ref={canvasRef}
+                        className="absolute top-0 left-0 block rounded-xl z-20 shadow-2xl shadow-blue-500/20"
+                        style={{ pointerEvents: 'none' }} // Let clicks pass through to potential underlying interactions
+                    />
 
                 {FEATURES.map((feature, index) => {
                     // Vertical positioning logic - reduced spacing between features
@@ -286,7 +292,8 @@ export const CubeSection: React.FC = () => {
                         </div>
                     );
                 })}
+                </div>
             </div>
-        </div>
+        </section>
     );
 };

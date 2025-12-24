@@ -18,7 +18,7 @@ export function ScalingSlidingCards({ cards }: ScalingSlidingCardsProps) {
     const inView = useInView(containerRef, { amount: 0.3 });
 
     // State
-    const [isPlaying, setIsPlaying] = useState(false);
+    const [isPlaying, setIsPlaying] = useState(true);
     const [isHovered, setIsHovered] = useState(false);
     const [xPos, setXPos] = useState(0);
     const [cardWidth, setCardWidth] = useState(450);
@@ -40,12 +40,12 @@ export function ScalingSlidingCards({ cards }: ScalingSlidingCardsProps) {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    // Auto-play Logic
-    useEffect(() => {
-        if (inView && !isPlaying) {
-            setIsPlaying(true);
-        }
-    }, [inView]);
+    // Auto-play Logic - removed conflicting condition
+    // useEffect(() => {
+    //     if (inView && !isPlaying) {
+    //         setIsPlaying(true);
+    //     }
+    // }, [inView]);
 
     useEffect(() => {
         let animationFrame: number;
@@ -53,7 +53,7 @@ export function ScalingSlidingCards({ cards }: ScalingSlidingCardsProps) {
         const animate = () => {
             if (isPlaying && !isHovered) {
                 setXPos((prev) => {
-                    let next = prev - 0.5; // Speed
+                    let next = prev - 1; // Subtle speed
 
                     // Seamless Loop Reset
                     // If we've scrolled past the first set, reset to 0 (which looks identical to start of 2nd set)
@@ -92,6 +92,22 @@ export function ScalingSlidingCards({ cards }: ScalingSlidingCardsProps) {
             return next <= -SINGLE_SET_WIDTH ? 0 : next;
         });
     };
+
+    // Keyboard navigation
+    useEffect(() => {
+        const handleKeyDown = (e: KeyboardEvent) => {
+            if (e.key === 'ArrowLeft') {
+                e.preventDefault();
+                handlePrev();
+            } else if (e.key === 'ArrowRight') {
+                e.preventDefault();
+                handleNext();
+            }
+        };
+
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, [cardWidth, GAP, SINGLE_SET_WIDTH]);
 
     return (
         <section ref={containerRef} className="py-20 relative overflow-hidden bg-[#050505]">

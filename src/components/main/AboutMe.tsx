@@ -31,13 +31,13 @@ export function AboutMe() {
   return (
     <section id="about" className="py-24 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-20 space-y-4">
+        <div className="text-center mb-12 md:mb-20 space-y-4">
           <div className="w-12 h-[1px] bg-white/20 mx-auto" />
           <h2 className="text-3xl md:text-5xl font-bold tracking-tighter">ABOUT SOUNDVIBE</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-12 items-center mb-32">
-          <div className="space-y-20">
+          <div className="space-y-12 md:space-y-20">
             {values.slice(0, 2).map((val, i) => (
               <motion.div
                 key={i}
@@ -62,7 +62,7 @@ export function AboutMe() {
             <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-12 md:space-y-20">
             {values.slice(2, 4).map((val, i) => (
               <motion.div
                 key={i}

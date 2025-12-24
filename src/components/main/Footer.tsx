@@ -10,12 +10,12 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gradient-to-b from-black/50 to-black text-white pt-24 pb-12 px-6 overflow-hidden">
+    <footer className="relative bg-gradient-to-b from-black/50 to-black text-white pt-16 md:pt-24 pb-8 md:pb-12 px-6 overflow-hidden">
       <div className="max-w-[1400px] mx-auto">
-        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-16 md:gap-16">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between gap-8 md:gap-16">
           {/* Left Side: Brand Name with Vinyl */}
-          <div className="flex flex-col gap-6">
-            <h2 className="text-6xl md:text-[12rem] font-black tracking-tighter leading-[0.75] select-none flex flex-col">
+          <div className="flex flex-col gap-4 md:gap-6">
+            <h2 className="font-black tracking-tighter leading-[0.75] select-none flex flex-col" style={{ fontSize: 'clamp(2.5rem, 10vw, 12rem)' }}>
               <span>SOUND</span>
               <span className="flex items-center">
                 VIBE
@@ -28,13 +28,13 @@ export function Footer() {
             </h2>
 
             {/* Mobile Copyright (Visible only on mobile) */}
-            <p className="text-gray-500/80 text-sm font-medium block md:hidden mt-2">
+            <p className="text-gray-500/80 text-xs md:text-sm font-medium block md:hidden mt-2">
               © {currentYear} SoundVibe. All rights reserved.
             </p>
           </div>
 
           {/* Right Side: Links */}
-          <div className="flex flex-col items-start md:items-end gap-2 w-full md:w-auto mt-8 md:mt-0">
+          <div className="flex flex-col items-start md:items-end gap-3 md:gap-2 w-full md:w-auto">
             {[
               { label: "LINKEDIN", href: "#" },
               { label: "INSTAGRAM", href: "#" },
@@ -44,22 +44,23 @@ export function Footer() {
               <Link
                 key={link.label}
                 href={link.href}
-                className="group flex items-center gap-4 text-3xl md:text-5xl font-black uppercase tracking-tighter transition-all duration-300 hover:tracking-widest"
+                className="group flex items-center gap-3 md:gap-4 font-black uppercase tracking-tighter transition-all duration-300 hover:tracking-widest"
+                style={{ fontSize: 'clamp(1.25rem, 3vw, 3rem)' }}
               >
                 <span>{link.label}</span>
-                <ArrowRight className="w-6 h-6 md:w-12 md:h-12 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
+                <ArrowRight className="w-5 h-5 md:w-12 md:h-12 text-blue-600 group-hover:translate-x-2 transition-transform duration-300" />
               </Link>
             ))}
           </div>
         </div>
 
         {/* Bottom Section */}
-        <div className="mt-20 md:mt-32 pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="mt-12 md:mt-20 lg:mt-32 pt-8 md:pt-12 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 md:gap-6">
           {/* Desktop Copyright (Hidden on mobile) */}
-          <p className="text-gray-500 text-sm md:text-base font-medium hidden md:block">
+          <p className="text-gray-500 text-xs md:text-sm lg:text-base font-medium hidden md:block">
             © {currentYear} SoundVibe. All rights reserved.
           </p>
-          <div className="flex gap-8 text-sm text-gray-400">
+          <div className="flex gap-6 md:gap-8 text-xs md:text-sm text-gray-400">
             <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
             <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
           </div>

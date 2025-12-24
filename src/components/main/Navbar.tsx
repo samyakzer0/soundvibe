@@ -225,7 +225,8 @@ export function Navbar() {
                   animate={{ opacity: 1, width: 'auto' }}
                   exit={{ opacity: 0, width: 0 }}
                   transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                  className="font-bold text-xl tracking-tighter text-white overflow-hidden whitespace-nowrap"
+                  className="font-bold tracking-tighter text-white overflow-hidden whitespace-nowrap"
+                  style={{ fontSize: 'clamp(16px, 4vw, 24px)' }}
                 >
                   SOUNDVIBE
                 </motion.span>

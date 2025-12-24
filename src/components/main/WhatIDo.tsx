@@ -39,15 +39,15 @@ const services = [
 
 export function WhatIDo() {
   return (
-    <section id="services" className="relative py-24 px-6 md:px-8 mt-42 md:mt-48 bg-black z-30">
+    <section id="services" className="relative py-12 md:py-16 px-6 md:px-8 bg-black">
       
-      <div className="max-w-6xl mx-auto relative">
+      <div className="max-w-6xl mx-auto relative pt-12 md:pt-16">
         <div className="text-center mb-16 md:mb-20">
           <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
           <h2 className="text-4xl md:text-5xl font-bold tracking-tighter uppercase">SERVICES</h2>
         </div>
 
-        <div className="grid gap-16 md:gap-20">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
           {services.map((service, index) => (
             <motion.div
               key={index}
@@ -55,24 +55,25 @@ export function WhatIDo() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8, delay: index * 0.1 }}
-              className={`flex flex-col ${index % 2 === 1 ? 'md:flex-row-reverse' : 'md:flex-row'} gap-8 md:gap-12 items-center`}
+              className="flex flex-col gap-6"
             >
-              <div className="flex-1 space-y-6 md:space-y-8 w-full">
-                <div className="w-12 h-[1px] bg-white/20" />
-                <h3 className="text-2xl md:text-3xl font-bold tracking-tighter">{service.title}</h3>
-                <p className="text-muted-foreground leading-relaxed max-w-md">
-                  {service.description}
-                </p>
-                <Button variant="outline" className="rounded-full border-white/20 hover:bg-white hover:text-black transition-all">
-                  Contact me
-                </Button>
-              </div>
-              <div className="flex-1 w-full aspect-[4/3] rounded-3xl overflow-hidden bg-muted">
+              <div className="w-full aspect-[4/3] rounded-2xl overflow-hidden bg-muted">
                 <img
                   src={service.image}
                   alt={service.title}
                   className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
                 />
+              </div>
+              <div className="space-y-4">
+                <div className="w-12 h-[1px] bg-white/20" />
+                <h3 className="text-xl md:text-2xl font-bold tracking-tighter">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
+                  {service.description}
+                </p>
+                <Button variant="outline" size="sm" className="rounded-full border-white/20 hover:bg-white hover:text-black transition-all">
+                  Contact me
+                </Button>
               </div>
             </motion.div>
           ))}

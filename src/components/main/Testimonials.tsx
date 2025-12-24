@@ -58,10 +58,14 @@ export function Testimonials() {
         <div className="absolute top-0 right-0 w-64 h-64 bg-cyan-500/5 rounded-full blur-[80px] group-hover:bg-cyan-500/10 transition-colors" />
 
         {/* Quote Icon */}
-        <div className="relative z-10">
-          <Quote className="w-12 h-12 md:w-16 md:h-16 text-transparent fill-cyan-400 opacity-50 mb-6" />
+        <div className="absolute top-6 left-6 md:top-8 md:left-8 z-10">
+          <div className="text-5xl md:text-6xl font-bold leading-none text-cyan-400 opacity-50 rotate-180" style={{ fontFamily: 'Georgia, serif' }}>,,</div>
+        </div>
+
+        {/* Quote Text */}
+        <div className="relative z-10 pt-16 md:pt-20">
           <p className="text-xl md:text-2xl font-medium leading-relaxed tracking-tight text-gray-200">
-            "{t.quote}"
+            {t.quote}
           </p>
         </div>
 
