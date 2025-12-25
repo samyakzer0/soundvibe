@@ -123,16 +123,24 @@ export function PastWork() {
         });
       }, "-=0.5");
 
+    // Hover handlers for autoplay pause/resume
+    const handleMouseEnter = () => {
+      if (autoRotateRef.current) {
+        autoRotateRef.current.pause();
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (autoRotateRef.current && !isDraggingRef.current) {
+        autoRotateRef.current.play();
+      }
+    };
+
     // Drag handlers
     const dragStart = (e: MouseEvent | TouchEvent) => {
       const clientX = "touches" in e ? e.touches[0].clientX : e.clientX;
       xPosRef.current = Math.round(clientX);
       isDraggingRef.current = true;
-      
-      // Pause autoplay when dragging
-      if (autoRotateRef.current) {
-        autoRotateRef.current.pause();
-      }
       
       gsap.set(ring, { cursor: "grabbing" });
       window.addEventListener("mousemove", drag);
@@ -160,13 +168,11 @@ export function PastWork() {
       window.removeEventListener("mousemove", drag);
       window.removeEventListener("touchmove", drag);
       gsap.set(ring, { cursor: "grab" });
-      
-      // Resume autoplay when dragging ends
-      if (autoRotateRef.current) {
-        autoRotateRef.current.play();
-      }
     };
 
+    // Add event listeners
+    ring.addEventListener("mouseenter", handleMouseEnter);
+    ring.addEventListener("mouseleave", handleMouseLeave);
     window.addEventListener("mousedown", dragStart);
     window.addEventListener("touchstart", dragStart);
     window.addEventListener("mouseup", dragEnd);
@@ -174,6 +180,8 @@ export function PastWork() {
 
     // Cleanup
     return () => {
+      ring.removeEventListener("mouseenter", handleMouseEnter);
+      ring.removeEventListener("mouseleave", handleMouseLeave);
       window.removeEventListener("mousedown", dragStart);
       window.removeEventListener("touchstart", dragStart);
       window.removeEventListener("mouseup", dragEnd);

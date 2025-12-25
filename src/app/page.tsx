@@ -3,6 +3,7 @@
 import React from "react";
 import { Navbar } from "@/components/main/Navbar";
 import { Hero } from "@/components/main/Hero";
+import { InteractivePiano } from "@/components/main/InteractivePiano";
 import { LogoCloud } from "@/components/main/LogoCloud";
 import { WhatIDo } from "@/components/main/WhatIDo";
 import { Quote } from "@/components/main/Quote";
@@ -19,6 +20,8 @@ export default function Page() {
     <main className="min-h-screen bg-background text-foreground selection:bg-white selection:text-black">
       <Navbar />
       <Hero />
+
+      <InteractivePiano />
 
       <ParallaxWrapper>
         <LogoCloud />

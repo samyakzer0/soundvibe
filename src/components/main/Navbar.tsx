@@ -119,9 +119,19 @@ const RCACable: React.FC<RCACableProps> = ({ color, className = '' }) => {
 const NavItem: React.FC<{ item: NavItemType }> = ({ item }) => {
   const [isHovered, setIsHovered] = useState(false);
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault();
+    const targetId = item.href.replace('#', '');
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   return (
     <Link
       href={item.href}
+      onClick={handleClick}
       className="relative group flex items-center justify-center h-10 px-6"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
@@ -271,6 +281,11 @@ export function Navbar() {
                 >
                   <Link
                     href="#contact"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      const target = document.getElementById('contact');
+                      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }}
                     className="rounded-full px-6 py-2 bg-white text-black hover:bg-white/90 transition-all hover:scale-105 active:scale-95 font-bold uppercase text-[10px] tracking-widest whitespace-nowrap inline-block"
                   >
                     Get in touch
@@ -317,7 +332,15 @@ export function Navbar() {
                 <Link
                   key={item.id}
                   href={item.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsMobileMenuOpen(false);
+                    const targetId = item.href.replace('#', '');
+                    const target = document.getElementById(targetId);
+                    setTimeout(() => {
+                      target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }, 300);
+                  }}
                   className="py-4 border-b border-white/10 text-white/70 hover:text-white transition-colors"
                 >
                   {item.label}
@@ -325,7 +348,14 @@ export function Navbar() {
               ))}
               <Link
                 href="#contact"
-                onClick={() => setIsMobileMenuOpen(false)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  setIsMobileMenuOpen(false);
+                  const target = document.getElementById('contact');
+                  setTimeout(() => {
+                    target?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  }, 300);
+                }}
                 className="mt-4 py-4 text-center bg-white text-black rounded-full"
               >
                 Get in touch
