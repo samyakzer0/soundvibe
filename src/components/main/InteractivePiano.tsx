@@ -203,7 +203,7 @@ export function InteractivePiano() {
   };
 
   return (
-    <section className="relative py-12 md:py-16 px-6 bg-black overflow-hidden">
+    <section className="hidden md:block relative py-12 md:py-16 px-6 bg-black overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-8 md:mb-12">
           <div className="w-12 h-[1px] bg-white/20 mx-auto mb-6" />
