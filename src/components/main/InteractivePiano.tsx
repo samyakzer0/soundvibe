@@ -52,6 +52,7 @@ export function InteractivePiano() {
   const [activeNotes, setActiveNotes] = useState<Set<number>>(new Set());
   const [isReady, setIsReady] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const activeTouchRef = useRef<number | null>(null);
 
   useEffect(() => {
     // Check if mobile
@@ -102,7 +103,7 @@ export function InteractivePiano() {
     };
   }, []);
 
-  const playNote = async (noteId: number) => {
+  const playNote = async (noteId: number, isTouch: boolean = false) => {
     // Start audio context on user interaction
     if (Tone.context.state !== "running") {
       await Tone.start();
@@ -110,8 +111,17 @@ export function InteractivePiano() {
 
     const noteName = NOTE_MAPPING[noteId];
     if (noteName && synthRef.current) {
+      // Stop previous touch note if exists
+      if (isTouch && activeTouchRef.current !== null && activeTouchRef.current !== noteId) {
+        stopNote(activeTouchRef.current);
+      }
+      
       synthRef.current.triggerAttack(noteName);
       setActiveNotes((prev) => new Set(prev).add(noteId));
+      
+      if (isTouch) {
+        activeTouchRef.current = noteId;
+      }
       
       // Add active class to visual key
       const key = document.querySelector(`[data-note-id="${noteId}"]`);
@@ -130,6 +140,11 @@ export function InteractivePiano() {
         newSet.delete(noteId);
         return newSet;
       });
+      
+      // Clear touch tracking if this was the active touch
+      if (activeTouchRef.current === noteId) {
+        activeTouchRef.current = null;
+      }
 
       // Remove active class from visual key
       const key = document.querySelector(`[data-note-id="${noteId}"]`);
@@ -150,6 +165,40 @@ export function InteractivePiano() {
   const handleMouseLeave = (noteId: number) => {
     if (activeNotes.has(noteId)) {
       stopNote(noteId);
+    }
+  };
+
+  const handleTouchStart = async (e: React.TouchEvent, noteId: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    await playNote(noteId, true);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent, noteId: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    stopNote(noteId);
+  };
+
+  const handleTouchCancel = (e: React.TouchEvent, noteId: number) => {
+    e.preventDefault();
+    e.stopPropagation();
+    stopNote(noteId);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent, noteId: number) => {
+    e.preventDefault();
+    
+    // Check if touch has moved away from the key
+    const touch = e.touches[0];
+    if (touch) {
+      const element = document.elementFromPoint(touch.clientX, touch.clientY);
+      const currentNoteId = element?.getAttribute('data-note-id');
+      
+      // If touch moved to a different key or away from piano, stop current note
+      if (currentNoteId !== noteId.toString()) {
+        stopNote(noteId);
+      }
     }
   };
 
@@ -192,14 +241,10 @@ export function InteractivePiano() {
                     onMouseDown={() => handleMouseDown(noteId)}
                     onMouseUp={() => handleMouseUp(noteId)}
                     onMouseLeave={() => handleMouseLeave(noteId)}
-                    onTouchStart={(e) => {
-                      e.preventDefault();
-                      handleMouseDown(noteId);
-                    }}
-                    onTouchEnd={(e) => {
-                      e.preventDefault();
-                      handleMouseUp(noteId);
-                    }}
+                    onTouchStart={(e) => handleTouchStart(e, noteId)}
+                    onTouchEnd={(e) => handleTouchEnd(e, noteId)}
+                    onTouchCancel={(e) => handleTouchCancel(e, noteId)}
+                    onTouchMove={(e) => handleTouchMove(e, noteId)}
                     stroke="#e4e4ec"
                     strokeWidth="0.5"
                   />
@@ -222,14 +267,10 @@ export function InteractivePiano() {
                     onMouseDown={() => handleMouseDown(noteId)}
                     onMouseUp={() => handleMouseUp(noteId)}
                     onMouseLeave={() => handleMouseLeave(noteId)}
-                    onTouchStart={(e) => {
-                      e.preventDefault();
-                      handleMouseDown(noteId);
-                    }}
-                    onTouchEnd={(e) => {
-                      e.preventDefault();
-                      handleMouseUp(noteId);
-                    }}
+                    onTouchStart={(e) => handleTouchStart(e, noteId)}
+                    onTouchEnd={(e) => handleTouchEnd(e, noteId)}
+                    onTouchCancel={(e) => handleTouchCancel(e, noteId)}
+                    onTouchMove={(e) => handleTouchMove(e, noteId)}
                   />
                 ))}
               </g>
